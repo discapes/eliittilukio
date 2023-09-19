@@ -49,12 +49,15 @@
 </script>
 
 <div class="bg p-10 flex flex-col gap-10">
-	<div>
-		<h2>Eliittilukio.fi</h2>
-		<h3>eli siis TSYK</h3>
-		<p class="mb-0">
-			Tällä hetkellä täältä löytyy linkkejä, oispaeliitti, ruokavuorolaskuri ja palauteboksi.
-		</p>
+	<div class="flex gap-10 items-center">
+		<img class="inline-block h-[100px]" alt="tsyk logo" src="/favicon.png" />
+		<div>
+			<h2>Eliittilukio.fi</h2>
+			<h3>eli siis TSYK</h3>
+			<h4 class="mb-0">
+				Tällä hetkellä täältä löytyy linkkejä, oispaeliitti, ruokavuorolaskuri ja palauteboksi.
+			</h4>
+		</div>
 	</div>
 	<div class="flex flex-wrap gap-5">
 		{#each links as link}

@@ -16,7 +16,7 @@
 		tryKoeviikko: () => boolean;
 	};
 
-	let highscore = data.me.score;
+	let highscore: number | null = data.me?.score;
 	let won = false;
 	let interval: number;
 	let highscoreUpdateTimeout: number | null = null;
@@ -45,7 +45,7 @@
 	}
 
 	async function onAddScore() {
-		if (score > highscore) {
+		if (highscore != null && score > highscore) {
 			highscore = score;
 			if (highscoreUpdateTimeout === null) {
 				highscoreUpdateTimeout = setTimeout(uploadHighscore, 3000);
@@ -93,9 +93,11 @@
 	/>
 	<div class="flex flex-col items-start justify-start p-3 w-full gap-3">
 		<div class="bg p-3">
-			<p>moti: {moti}</p>
-			<p>score: {score}</p>
-			<p>highscore: {highscore}</p>
+			<p>Moti: {moti}</p>
+			<p>Score: {score}</p>
+			{#if highscore != null && data.me}
+				<p>Highscore: {highscore}</p>
+			{/if}
 		</div>
 		<button
 			class="text-center button"
@@ -105,5 +107,6 @@
 			><p>Koeviikko</p>
 			({motiCost})</button
 		>
+		<a class="bg p-3" href="/oispaeliitti/info"> Info </a>
 	</div>
 </section>

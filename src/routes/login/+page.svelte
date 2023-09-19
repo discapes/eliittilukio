@@ -31,31 +31,37 @@
 	}
 </script>
 
-<div class="bg flex flex-col items-center m-10 p-10 gap-5">
-	{#if message}
-		<p>{message}</p>
-	{/if}
-	<form class="flex flex-col gap-4 w-32" on:submit|preventDefault={onSubmit}>
-		<div>
-			<label for="username">Username</label>
-			<input type="text" id="username" class="bg w-full" name="username" autocomplete="username" />
+<div class="flex flex-col items-center m-10 p-10 gap-5">
+	<form class="flex bg p-5 flex-col gap-4 w-64" on:submit|preventDefault={onSubmit}>
+		<h3>Kirjaudu</h3>
+		{#if message}
+			<p>{message}</p>
+		{/if}
+		<div class="flex flex-col">
+			<label for="username">Käyttäjänimi:</label>
+			<input
+				type="text"
+				id="username"
+				class="w-full"
+				placeholder="-"
+				name="username"
+				autocomplete="username"
+			/>
 		</div>
-		<div>
-			<label for="username">Password</label>
+		<div class="flex flex-col">
+			<label for="password">Salasana:</label>
 			<input
 				type="password"
 				id="password"
-				class="bg w-full"
+				class="w-full"
+				placeholder="-"
 				name="password"
 				autocomplete="current-password"
 			/>
 		</div>
-		<input class="bg cursor-pointer" type="submit" value="Submit" />
+		<input class="bg cursor-pointer" type="submit" value="Kirjaudu" />
 	</form>
 </div>
 
 <style lang="less">
-	input {
-		outline: none;
-	}
 </style>

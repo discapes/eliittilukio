@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { browser } from "$app/environment";
-	import "./app.css";
 	import { getSlot } from "./model";
 	import { parse, type Schedule } from "./parser";
 
@@ -34,39 +33,30 @@
 	<title>Ruokavuorot</title>
 </svelte:head>
 
-<div class="p-10 md:px-32 bg flex-col flex gap-3">
-	<h1>TSYK jakso 1 ruokavuorot</h1>
-	<a
-		class="font-bold underline"
-		href="https://eliittilukio-public.s3.eu-north-1.amazonaws.com/Record_2023-04-13-11-03-16.mp4"
-		>lyhyt ohjevideo</a
-	>
-	<p class="max-w-[400px] min-w-[200px]">
+<div class="p-10 md:px-32 bg flex-col flex">
+	<p class="font-bold">
+		Ruokavuorilaskuri jakso 1 - <a
+			class="font-bold underline"
+			href="https://eliittilukio-public.s3.eu-north-1.amazonaws.com/Record_2023-04-13-11-03-16.mp4"
+			>lyhyt ohjevideo</a
+		>
+	</p>
+	<p class="">
 		Etsi Wilman lukujärjestyksestä ensimmäinen kokonainen viikko, kopioi kaikki painamalla
 		<code>CTRL + A</code> ja <code>CTRL + C</code> (tai puhelimella <code>Valitse kaikki</code>
 		ja <code>Kopioi</code>) ja liitä se tänne painamalla
 		<code>CTRL + V</code> (tai puhelimella <code>Liitä</code> seuraavaan kentään). Tiedot säilyy eli
-		kannattaa kirjanmerkitä!
+		sivun voi ladata uudestaan. Jos tiedoissa on puutteita laita palauttetta -M
 	</p>
-	<div class="mx-10 flex gap-3">
-		<input
-			on:input={(e) => {
-				load(e.target.value);
-				e.target.value = "";
-			}}
-			type="text"
-			class="px-1 w-32 bg-stone-800 outline-none"
-		/>
-		<!-- <button
-					on:click={() => parse(textfield)}
-					class="border rounded border-white hover:bg-white/80 bg-white/50 p-1"
-					>Paina jos ei toimi</button
-				> -->
-	</div>
-	<p class="max-w-[400px] min-w-[200px]">
-		Jos joku TSYKin kurssi puuttuu tietokannasta, pyrin lisäämään sen sinne muutaman päivän sisällä.
-		-M
-	</p>
+	<input
+		on:input={(e) => {
+			load(e.target.value);
+			e.target.value = "";
+		}}
+		class="w-32 mb-5"
+		placeholder="liitä tähän"
+		type="text"
+	/>
 	{#if schedule}
 		<div class="bg p-5 flex justify-center">
 			<table>

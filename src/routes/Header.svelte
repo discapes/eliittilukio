@@ -1,5 +1,4 @@
 <script lang="ts">
-	import navItems from "@/data/pages";
 	import { page } from "$app/stores";
 	import { API_URL } from "@/lib/def";
 	import { invalidateAll } from "$app/navigation";
@@ -10,6 +9,25 @@
 		});
 		invalidateAll();
 	}
+
+	const navItems = [
+		{
+			name: "Home",
+			path: "/"
+		},
+		{
+			name: "Oispa Eliitti",
+			path: "/oispaeliitti"
+		},
+		{
+			name: "Ruokavuorot",
+			path: "/ruokavuorot"
+		},
+		{
+			name: "Palauteboksi",
+			path: "/palauteboksi"
+		}
+	];
 </script>
 
 <header>
@@ -25,11 +43,11 @@
 	</nav>
 	<div class="flex gap-3 w-full justify-end items-center p-1">
 		{#if $page.data.me}
-			<p class="bg p-1">Logged in as {$page.data.me.username}</p>
+			<div class="bg p-1">Logged in as {$page.data.me.username}</div>
 			<button class="button" on:click={logout}> Log out </button>
 		{:else}
-			<a class="button" href="/login">Login</a>
-			<a class="button" href="/register">Register</a>
+			<a class="button" href="/login">Kirjaudu</a>
+			<a class="button" href="/register">Luo tili</a>
 		{/if}
 	</div>
 </header>

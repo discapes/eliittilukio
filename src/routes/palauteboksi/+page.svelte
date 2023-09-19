@@ -20,19 +20,12 @@
 	}
 </script>
 
-<div>
-	<div class="modal flex items-center justify-center bg">
-		<div class="bg-dark relative w-[400px] p-5 flex flex-col gap-5 items-start rounded">
-			<h1 class="my-0">Palaute</h1>
-			<form class="contents" on:submit|preventDefault={sendFeedback}>
-				<textarea
-					required
-					class="bg p-1 w-full resize-y border outline-none rounded"
-					name="text"
-					rows="4"
-				/>
-				<input class="button" value="Lähetä" type="submit" />
-			</form>
-		</div>
+<div class="modal flex items-center justify-center">
+	<div class="bg-dark relative w-[400px] p-5 bg flex flex-col gap-5 items-start rounded">
+		<h3>Palauteboksi</h3>
+		<form class="contents" on:submit|preventDefault={sendFeedback}>
+			<textarea required class="resize-y w-full" name="text" rows="4" />
+			<input class="button" value="Lähetä" type="submit" />
+		</form>
 	</div>
 </div>
