@@ -1,7 +1,7 @@
-<script>
-	import './app.less';
-	import '@fortawesome/fontawesome-free/css/all.min.css';
-	import Header from './Header.svelte';
+<script lang="ts">
+	import "./app.less";
+	import "@fortawesome/fontawesome-free/css/all.min.css";
+	import Header from "./Header.svelte";
 </script>
 
 <svelte:head>
@@ -11,8 +11,8 @@
 
 <div class="min-h-screen flex-col flex">
 	<Header />
-	<main class="grow">
+	<main class="grow m-10">
 		<slot />
 	</main>
-	<footer class="text-center">© {new Date().getFullYear()} Miika Tuominen & Lennu Laiho</footer>
+	<footer class="text-center">© {new Date().getFullYear()} MT & OPKH</footer>
 </div>

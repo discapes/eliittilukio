@@ -6,7 +6,8 @@
 	--color-theme-1: #7a7a7a;
 	--color-theme-2: #40b3ff;
 	--color-text: white;
-	--bg-color: rgb(68 64 60 / 0.5);
+	--bg-color: rgb(68 64 60 / 0.8);
+	--bg-color-hover: rgb(68 64 60);
 	--header-bg: var(--bg-color);
 	color: var(--color-text);
 	background-attachment: fixed;
@@ -18,4 +19,12 @@
 
 .bg {
 	background-color: var(--bg-color);
+}
+
+button, .button {
+	background-color: var(--bg-color);
+	&:hover {
+		background-color: var(--bg-color-hover);
+	}
+	@apply p-2;	
 }

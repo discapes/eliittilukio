@@ -1,42 +1,40 @@
-<script lang="ts">
-	import navItems from "@/data/pages";
+<script>
 	import { page } from "$app/stores";
-	import { API_URL } from "@/lib/def";
-	import { invalidateAll } from "$app/navigation";
-
-	async function logout() {
-		await fetch(API_URL + "/logout", {
-			method: "POST"
-		});
-		invalidateAll();
-	}
+	import logo from "$lib/images/svelte-logo.svg";
+	import github from "$lib/images/github.svg";
 </script>
 
 <header>
-	<div class="w-full" />
-	<nav class="w-full">
+	<div class="corner">
+		<a href="https://kit.svelte.dev">
+			<img src={logo} alt="SvelteKit" />
+		</a>
+	</div>
+
+	<nav>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
 			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
 		</svg>
 		<ul>
-			{#each navItems as navItem}
-				<li aria-current={$page.url.pathname === navItem.path ? "page" : undefined}>
-					<a href={navItem.path}>{navItem.name}</a>
-				</li>
-			{/each}
+			<li aria-current={$page.url.pathname === "/" ? "page" : undefined}>
+				<a href="/">Home</a>
+			</li>
+			<li aria-current={$page.url.pathname === "/about" ? "page" : undefined}>
+				<a href="/about">About</a>
+			</li>
+			<li aria-current={$page.url.pathname.startsWith("/sverdle") ? "page" : undefined}>
+				<a href="/sverdle">Sverdle</a>
+			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
 			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
 		</svg>
 	</nav>
-	<div class="flex gap-3 w-full justify-end items-center p-1">
-		{#if $page.data.me}
-			<p class="bg p-1">Logged in as {$page.data.me.username}</p>
-			<button class="button" on:click={logout}> Log out </button>
-		{:else}
-			<a class="button" href="/login">Login</a>
-			<a class="button" href="/register">Register</a>
-		{/if}
+
+	<div class="corner">
+		<a href="https://github.com/sveltejs/kit">
+			<img src={github} alt="GitHub" />
+		</a>
 	</div>
 </header>
 
@@ -46,9 +44,29 @@
 		justify-content: space-between;
 	}
 
+	.corner {
+		width: 3em;
+		height: 3em;
+	}
+
+	.corner a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+	}
+
+	.corner img {
+		width: 2em;
+		height: 2em;
+		object-fit: contain;
+	}
+
 	nav {
 		display: flex;
 		justify-content: center;
+		--background: rgba(255, 255, 255, 0.7);
 	}
 
 	svg {
@@ -58,7 +76,7 @@
 	}
 
 	path {
-		fill: var(--header-bg);
+		fill: var(--background);
 	}
 
 	ul {
@@ -70,7 +88,7 @@
 		justify-content: center;
 		align-items: center;
 		list-style: none;
-		background: var(--header-bg);
+		background: var(--background);
 		background-size: contain;
 	}
 
@@ -106,6 +124,6 @@
 	}
 
 	a:hover {
-		text-shadow: #fff 1px 0 10px;
+		color: var(--color-theme-1);
 	}
 </style>
