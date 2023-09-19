@@ -1,10 +1,8 @@
 <script lang="ts">
 	import { browser } from "$app/environment";
 	import Engine from "./engine.js";
-	import { createEventDispatcher } from "svelte";
 	import "./tiles.css";
 
-	const dispatch = createEventDispatcher();
 	const P_MAX_TILE = 4096;
 	const P_INITIAL_MOTICOSTS = "1000,1100,1300,1600,2000";
 	let tileContainer: HTMLDivElement;
@@ -12,7 +10,10 @@
 	export let moti = 0;
 	export let score = 0;
 	export let motiCost = calcMotiCost(0);
-	export let controller = {
+	export let onWin: () => void;
+	export let onLoss: () => void;
+	export let onAddScore: (amount: number) => void;
+	export const controller = {
 		reset,
 		tryKoeviikko
 	};
@@ -20,11 +21,12 @@
 	let katkoja = 0;
 
 	const handlers = {
-		onWin: () => dispatch("win"),
-		onLoss: () => dispatch("loss"),
+		onWin,
+		onLoss,
 		onAddScore: (add: number) => {
 			score += add;
 			moti += add;
+			onAddScore(add);
 		}
 	};
 
@@ -57,6 +59,7 @@
 	}
 
 	function handleKd(e: KeyboardEvent) {
+		let moved = true;
 		switch (e.key.toLowerCase()) {
 			case "arrowup":
 			case "w":
@@ -75,9 +78,13 @@
 				engine.move(1);
 				break;
 			default:
+				moved = false;
 				return;
 		}
-		update();
+		if (moved) {
+			update();
+			e.preventDefault();
+		}
 	}
 
 	function update() {
@@ -139,15 +146,14 @@
 </svelte:head>
 <svelte:window on:keydown={handleKd} />
 
-<div class="absolute z-10 translate-y-[16px] translate-x-[16px]" bind:this={tileContainer} />
-<div
-	class="grid grid-flow-col gap-[15px] p-4 bg-black/10 rounded"
-	style={`grid-template-rows: repeat(${engine.sizey}, minmax(0, 1fr)); grid-template-columns: repeat(${engine.sizex}`}
->
-	{#each { length: engine.sizex * engine.sizey } as _}
-		<div class="min-h-[110px] min-w-[110px] bg-black/20 rounded" />
-	{/each}
+<div class="w-full">
+	<div class="absolute z-10 translate-y-[16px] translate-x-[16px]" bind:this={tileContainer} />
+	<div
+		class="grid grid-flow-col gap-[15px] p-4 bg-black/10 rounded"
+		style={`grid-template-rows: repeat(${engine.sizey}, minmax(0, 1fr)); grid-template-columns: repeat(${engine.sizex}`}
+	>
+		{#each { length: engine.sizex * engine.sizey } as _}
+			<div class="min-h-[110px] min-w-[110px] bg-black/20 rounded" />
+		{/each}
+	</div>
 </div>
-
-<style global>
-</style>

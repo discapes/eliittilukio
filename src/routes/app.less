@@ -23,8 +23,31 @@
 
 button, .button {
 	background-color: var(--bg-color);
-	&:hover {
+	&:hover:not([disabled]) {
 		background-color: var(--bg-color-hover);
 	}
 	@apply p-2;	
+}
+
+
+h1 {
+	font-size: 3.75rem;
+	line-height: 1;
+	margin: 5px 0 10px 0;
+}
+
+h2 {
+	font-weight: bold;
+	font-size: xx-large;
+	margin: 5px 0 10px 0;
+}
+
+h3 {
+	font-size: x-large;
+	margin: 5px 0 10px 0;
+}
+
+p {
+	margin-bottom: 0.75rem;
+	line-height: 1.625;
 }

@@ -1,14 +1,18 @@
 export default [
 	{
 		name: "Home",
-		path: "/",
+		path: "/"
 	},
 	{
 		name: "Oispa Eliitti",
-		path: "/oispaeliitti",
+		path: "/oispaeliitti"
 	},
 	{
 		name: "Ruokavuorot",
-		path: "/ruokavuorot",
+		path: "/ruokavuorot"
+	},
+	{
+		name: "Palauteboksi",
+		path: "/palauteboksi"
 	}
-]
+];
