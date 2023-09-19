@@ -1,0 +1,18 @@
+<script>
+	import './app.less';
+	import '@fortawesome/fontawesome-free/css/all.min.css';
+	import Header from './Header.svelte';
+</script>
+
+<svelte:head>
+	<title>TSYKin OPKHn sivusto</title>
+	<meta name="description" content="Lukee otsikossa ^^^" />
+</svelte:head>
+
+<div class="min-h-screen flex-col flex">
+	<Header />
+	<main class="grow">
+		<slot />
+	</main>
+	<footer class="text-center">© {new Date().getFullYear()} Miika Tuominen & Lennu Laiho</footer>
+</div>
