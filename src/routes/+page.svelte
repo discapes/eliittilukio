@@ -49,9 +49,10 @@
 </script>
 
 <div class="bg p-10 flex flex-col gap-10">
-	<div class="flex gap-10 items-center">
+	<div class="flex gap-10 items-center flex-wrap">
 		<img class="inline-block h-[100px]" alt="tsyk logo" src="/favicon.png" />
-		<div>
+		<!-- so flex doesn't wrap too early -->
+		<div class="basis-14 grow">
 			<h2>Eliittilukio.fi</h2>
 			<h3>eli siis TSYK</h3>
 			<h4 class="mb-0">
@@ -67,7 +68,7 @@
 			>
 		{/each}
 	</div>
-	<div class="flex justify-evenly">
+	<div class="flex justify-evenly flex-wrap gap-3">
 		<InstagramEmbed username="tsykopkh" />
 		<InstagramEmbed username="tsykinlukio" />
 	</div>
