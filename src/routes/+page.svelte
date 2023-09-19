@@ -11,7 +11,7 @@
 			url: "https://turku.inschool.fi/"
 		},
 		{
-			name: "TSYKIN blogi",
+			name: "TSYKin blogi",
 			logo: "wordpress.png",
 			url: "https://blog.edu.turku.fi/tsyk/"
 		},
@@ -29,6 +29,21 @@
 			name: "Viikon ruuat",
 			logo: "kaarea.png",
 			url: "https://menu.kaarea.fi/KaareaAromieMenus/FI/Default/Kaarea/TSYKLU/Restaurant.aspx"
+		},
+		{
+			name: "Otava",
+			logo: "otava.svg",
+			url: "https://opiskelija.otava.fi/materiaalit/omat"
+		},
+		{
+			name: "Studeo",
+			logo: "studeo.svg",
+			url: "https://app.studeo.fi/app/home"
+		},
+		{
+			name: "Sanomapro",
+			logo: "sanomapro.png",
+			url: "https://kampus.sanomapro.fi/"
 		}
 	];
 </script>
@@ -43,9 +58,9 @@
 	</div>
 	<div class="flex flex-wrap gap-5">
 		{#each links as link}
-			<a class="bg-white text-black flex flex-col items-center p-5" target="_blank" href={link.url}>
+			<a class="bg-white text-black flex flex-col items-center p-3" target="_blank" href={link.url}>
 				{link.name}
-				<div class="linkimage" style="background-image: url('/logos/{link.logo}');" /></a
+				<div class="linkimage m-2" style="background-image: url('/logos/{link.logo}');" /></a
 			>
 		{/each}
 	</div>
@@ -62,6 +77,7 @@
 		display: block;
 		background-position: center center;
 		background-color: white;
-		background-size: cover;
+		background-size: contain;
+		background-repeat: no-repeat;
 	}
 </style>

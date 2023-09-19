@@ -4,6 +4,7 @@
 	import { invalidate } from "$app/navigation";
 	import { API_URL } from "@/lib/def";
 	import { onDestroy, onMount } from "svelte";
+	import { confetti } from "@neoconfetti/svelte";
 
 	export let data: PageData;
 
@@ -14,26 +15,42 @@
 		reset: () => void;
 		tryKoeviikko: () => boolean;
 	};
+
+	let highscore = data.me.score;
+	let won = false;
 	let interval: number;
+	let highscoreUpdateTimeout: number | null = null;
 
 	function onLoss() {
-		alert("Loss");
-		controller.reset();
+		setTimeout(() => {
+			alert("Hävisit!");
+			controller.reset();
+		}, 1000);
 	}
 	function onWin() {
-		alert("Win");
-		controller.reset();
+		won = true;
 	}
-	async function onAddScore() {
+
+	async function uploadHighscore() {
+		highscoreUpdateTimeout = null;
 		await fetch(API_URL + "/update_score", {
 			body: JSON.stringify({
-				newscore: score
+				newscore: highscore
 			}),
 			headers: {
 				"Content-Type": "application/json"
 			},
 			method: "POST"
 		});
+	}
+
+	async function onAddScore() {
+		if (score > highscore) {
+			highscore = score;
+			if (highscoreUpdateTimeout === null) {
+				highscoreUpdateTimeout = setTimeout(uploadHighscore, 3000);
+			}
+		}
 	}
 
 	onMount(() => {
@@ -43,6 +60,18 @@
 		clearInterval(interval);
 	});
 </script>
+
+{#if won}
+	<div
+		style="position: absolute; left: 50%; top: 30%"
+		use:confetti={{
+			force: 0.7,
+			stageWidth: window.innerWidth,
+			stageHeight: window.innerHeight,
+			colors: ["#ff3e00", "#40b3ff", "#676778"]
+		}}
+	/>
+{/if}
 
 <section class="flex justify-center">
 	<div class="flex flex-col items-end justify-start w-full p-3">
@@ -66,6 +95,7 @@
 		<div class="bg p-3">
 			<p>moti: {moti}</p>
 			<p>score: {score}</p>
+			<p>highscore: {highscore}</p>
 		</div>
 		<button
 			class="text-center button"
