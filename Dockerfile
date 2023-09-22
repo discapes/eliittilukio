@@ -1,10 +1,11 @@
 FROM node
 COPY package*.json ./
-RUN npm ci
+RUN npm i
 
 COPY . .
 RUN npx svelte-kit sync
 RUN npm run build
 
 EXPOSE 8888
-CMD npm run node
+ENV PORT=8888
+CMD node build
