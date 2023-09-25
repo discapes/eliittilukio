@@ -44,6 +44,11 @@
 			name: "Sanomapro",
 			logo: "sanomapro.png",
 			url: "https://kampus.sanomapro.fi/"
+		},
+		{
+			name: "Edita",
+			logo: "edita.png",
+			url: "https://shop.edita.fi/digiedita/omat-tuotteet"
 		}
 	];
 </script>
