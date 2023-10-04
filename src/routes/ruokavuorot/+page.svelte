@@ -35,7 +35,7 @@
 
 <div class="p-10 md:px-32 bg flex-col flex">
 	<p class="font-bold">
-		Ruokavuorilaskuri jakso 1 - <a
+		Ruokavuorilaskuri jakso 2 - <a
 			class="font-bold underline"
 			href="https://eliittilukio-public.s3.eu-north-1.amazonaws.com/Record_2023-04-13-11-03-16.mp4"
 			>lyhyt ohjevideo</a
