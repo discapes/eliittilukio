@@ -32,7 +32,10 @@ export function parse(clipboard: string): Schedule | null {
 	}
 
 	if (palkit.every((p) => p === '')) return null;
-	else return new Schedule(palkit);
+	else { 
+		localStorage.setItem("rkv-data", clipboard);
+		return new Schedule(palkit)
+	};
 }
 
 export class Schedule {
