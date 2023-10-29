@@ -1,4 +1,5 @@
 {
 	"css.lint.unknownAtRules": "ignore",
-	"less.lint.unknownAtRules": "ignore"
+	"less.lint.unknownAtRules": "ignore",
+	"editor.formatOnSave": true
 }

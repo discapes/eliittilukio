@@ -1,8 +1,17 @@
 .tile,
 .tile .tile-inner {
-	width: 110px;
-	height: 110px;
+	width: 55px;
+	height: 55px;
 	overflow: hidden;
+}
+
+@media (min-width: 640px) {
+	.tile,
+	.tile .tile-inner {
+		width: 110px;
+		height: 110px;
+		overflow: hidden;
+	}
 }
 
 .tile {
@@ -19,7 +28,9 @@
 	font-weight: bold;
 	z-index: 10;
 	background-size: cover;
-	box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0);
+	box-shadow:
+		0 0 30px 10px rgba(243, 215, 116, 0),
+		inset 0 0 0 1px rgba(255, 255, 255, 0);
 }
 
 .tile-new .tile-inner {

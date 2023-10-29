@@ -73,8 +73,8 @@
 	/>
 {/if}
 
-<section class="flex justify-center">
-	<div class="flex flex-col items-end justify-start w-full p-3">
+<div class="flex gap-3 justify-center flex-col lg:flex-row items-center lg:items-stretch">
+	<div class="vbox hidden lg:flex justify-start w-[200px]">
 		<div class="bg p-3">
 			{#each data.top as p}
 				<p class="">{p.username.slice(0, 20)}: {p.score}</p>
@@ -91,22 +91,31 @@
 		{onWin}
 		{onAddScore}
 	/>
-	<div class="flex flex-col items-start justify-start p-3 w-full gap-3">
-		<div class="bg p-3">
-			<p>Moti: {moti}</p>
-			<p>Score: {score}</p>
-			{#if highscore != null && data.me}
-				<p>Highscore: {highscore}</p>
-			{/if}
+	<div class="flex lg:contents justify-center flex-wrap gap-5">
+		<div class="vbox flex lg:hidden justify-start w-[200px]">
+			<div class="bg p-3">
+				{#each data.top as p}
+					<p class="">{p.username.slice(0, 20)}: {p.score}</p>
+				{/each}
+			</div>
 		</div>
-		<button
-			class="text-center button"
-			disabled={moti < motiCost}
-			class:bg-lime-800={moti >= motiCost}
-			on:click={controller.tryKoeviikko}
-			><p>Koeviikko</p>
-			({motiCost})</button
-		>
-		<a class="bg p-3" href="/oispaeliitti/info"> Info </a>
+		<div class="vbox justify-start w-[200px]">
+			<div class="bg p-3">
+				<div>Moti: {moti}</div>
+				<div>Score: {score}</div>
+				{#if highscore != null && data.me}
+					<div>Highscore: {highscore}</div>
+				{/if}
+			</div>
+			<button
+				class="btnmax"
+				disabled={moti < motiCost}
+				class:bg-lime-800={moti >= motiCost}
+				on:click={controller.tryKoeviikko}
+			>
+				Koeviikko ({motiCost})
+			</button>
+			<a class="btn btnmax" href="/oispaeliitti/info"> Info </a>
+		</div>
 	</div>
-</section>
+</div>

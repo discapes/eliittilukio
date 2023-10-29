@@ -32,33 +32,35 @@
 	<title>Ruokavuorot</title>
 </svelte:head>
 
-<div class="p-10 md:px-32 bg flex-col flex">
-	<p class="font-bold">
-		Ruokavuorilaskuri jakso 2 - <a
-			class="font-bold underline"
-			href="https://eliittilukio-public.s3.eu-north-1.amazonaws.com/Record_2023-04-13-11-03-16.mp4"
-			>lyhyt ohjevideo</a
-		>
-	</p>
-	<p class="">
-		Etsi Wilman lukujärjestyksestä ensimmäinen kokonainen viikko, kopioi kaikki painamalla
-		<code>CTRL + A</code> ja <code>CTRL + C</code> (tai puhelimella <code>Valitse kaikki</code>
-		ja <code>Kopioi</code>) ja liitä se tänne painamalla
-		<code>CTRL + V</code> (tai puhelimella <code>Liitä</code> seuraavaan kentään). Tiedot säilyy eli
-		sivun voi ladata uudestaan. Jos tiedoissa on puutteita laita palauttetta -M
-	</p>
-	<input
-		on:input={(e) => {
-			load(e.target.value);
-			e.target.value = "";
-		}}
-		class="w-32 mb-5"
-		placeholder="liitä tähän"
-		type="text"
-	/>
+<div class="bg vbox max-w-[1286px] m-auto">
+	<div class="p-5 md:p-10">
+		<p class="font-bold">
+			Ruokavuorilaskuri jakso 2 - <a
+				class="font-bold underline"
+				href="https://eliittilukio-public.s3.eu-north-1.amazonaws.com/Record_2023-04-13-11-03-16.mp4"
+				>lyhyt ohjevideo</a
+			>
+		</p>
+		<p>
+			Etsi Wilman lukujärjestyksestä ensimmäinen kokonainen viikko, kopioi kaikki painamalla
+			<code>CTRL + A</code> ja <code>CTRL + C</code> (tai puhelimella <code>Valitse kaikki</code>
+			ja <code>Kopioi</code>) ja liitä se tänne painamalla
+			<code>CTRL + V</code> (tai puhelimella <code>Liitä</code> seuraavaan kentään). Tiedot säilyy eli
+			sivun voi ladata uudestaan. Jos tiedoissa on puutteita laita palauttetta
+		</p>
+		<input
+			on:input={(e) => {
+				load(e.target.value);
+				e.target.value = "";
+			}}
+			class="w-32"
+			placeholder="liitä tähän"
+			type="text"
+		/>
+	</div>
 	{#if schedule}
-		<div class="bg p-5 flex justify-center">
-			<table>
+		<div class="bg overflow-auto py-2">
+			<table class="m-auto">
 				<tr>
 					<th class="font-bold">Päivä</th>
 					<th class="font-bold">Kurssi</th>

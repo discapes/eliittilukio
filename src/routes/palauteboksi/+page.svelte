@@ -20,12 +20,10 @@
 	}
 </script>
 
-<div class="modal flex items-center justify-center">
-	<div class="bg-dark relative w-[400px] p-5 bg flex flex-col gap-5 items-start rounded">
+<form class="m-auto bg max-w-md vbox p-5" on:submit|preventDefault={sendFeedback}>
+	<div class="hbox items-center gap-x-5 gap-y-0">
 		<h3>Palauteboksi</h3>
-		<form class="contents" on:submit|preventDefault={sendFeedback}>
-			<textarea required class="resize-y w-full" name="text" rows="4" />
-			<input class="button" value="Lähetä" type="submit" />
-		</form>
+		<input class="btnmax grow" value="Lähetä" type="submit" />
 	</div>
-</div>
+	<textarea required class="resize-y w-full" name="text" rows="4" />
+</form>

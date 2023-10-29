@@ -1,5 +1,5 @@
 const P_START_TILES = 2;
-const P_WIN_TILE = 2048
+const P_WIN_TILE = 2048;
 
 class Tile {
 	constructor(position, value) {
@@ -217,7 +217,7 @@ export default class Engine {
 			0: { x: 0, y: -1 }, // up
 			1: { x: 1, y: 0 }, // right
 			2: { x: 0, y: 1 }, // down
-			3: { x: -1, y: 0 } // left
+			3: { x: -1, y: 0 }, // left
 		};
 
 		return map[direction];
@@ -252,7 +252,7 @@ export default class Engine {
 
 		return {
 			farthest: previous,
-			next: cell // Used to check if a merge is required
+			next: cell, // Used to check if a merge is required
 		};
 	}
 

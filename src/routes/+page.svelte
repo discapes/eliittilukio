@@ -53,11 +53,11 @@
 	];
 </script>
 
-<div class="bg p-10 flex flex-col gap-10">
-	<div class="flex gap-10 items-center flex-wrap">
+<div class="bg vbox p-5 gap-5 sm:p-10 sm:gap-10 max-w-[1286px] m-auto">
+	<div class="hbox items-center flex-wrap p-3 sm:gap-10">
 		<img class="inline-block h-[100px]" alt="tsyk logo" src="/favicon.png" />
 		<!-- so flex doesn't wrap too early -->
-		<div class="basis-14 grow">
+		<div class="basis-[230px] grow">
 			<h2>Eliittilukio.fi</h2>
 			<h3>eli siis TSYK</h3>
 			<h4 class="mb-0">

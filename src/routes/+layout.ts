@@ -5,6 +5,6 @@ export const load = (async ({ fetch }: LayoutLoadEvent) => {
 	const me = await fetch(API_URL + "/me", {});
 	if (me.status === 200)
 		return {
-			me: me.json()
+			me: me.json(),
 		};
 }) satisfies LayoutLoad;

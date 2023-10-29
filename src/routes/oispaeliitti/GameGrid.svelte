@@ -102,11 +102,16 @@
 		previousPosition?: { x: number; y: number };
 		mergedFrom?: any[];
 	}) {
+		const mobile = window.innerWidth < 640;
+		const tileSize = mobile ? 55 : 110;
+		const padSize = mobile ? 7 : 15;
 		const position = tile.previousPosition || { x: tile.x, y: tile.y };
 
 		const wrapper = document.createElement("div");
 		wrapper.classList.add("tile", "tile-" + Math.min(P_MAX_TILE, tile.value));
-		wrapper.style.transform = `translate(${125 * position.x}px, ${125 * position.y}px)	`;
+		wrapper.style.transform = `translate(${padSize + (tileSize + padSize) * position.x}px, ${
+			padSize + (tileSize + padSize) * position.y
+		}px)	`;
 
 		const inner = document.createElement("div");
 		inner.classList.add("tile-inner");
@@ -115,7 +120,10 @@
 		if (tile.previousPosition) {
 			// Make sure that the tile gets rendered in the previous position first
 			window.requestAnimationFrame(
-				() => (wrapper.style.transform = `translate(${125 * tile.x}px, ${125 * tile.y}px)`)
+				() =>
+					(wrapper.style.transform = `translate(${padSize + (tileSize + padSize) * tile.x}px, ${
+						padSize + (tileSize + padSize) * tile.y
+					}px)`)
 			);
 		} else if (tile.mergedFrom) {
 			wrapper.classList.add("tile-merged");
@@ -146,14 +154,47 @@
 </svelte:head>
 <svelte:window on:keydown={handleKd} />
 
-<div class="w-full">
-	<div class="absolute z-10 translate-y-[16px] translate-x-[16px]" bind:this={tileContainer} />
+<div class="gridparent">
+	<div class="absolute z-10" bind:this={tileContainer} />
 	<div
-		class="grid grid-flow-col gap-[15px] p-4 bg-black/10 rounded"
-		style={`grid-template-rows: repeat(${engine.sizey}, minmax(0, 1fr)); grid-template-columns: repeat(${engine.sizex}`}
+		class="gamegrid grid grid-flow-col bg-black/10 rounded"
+		style="grid-template-rows: repeat({engine.sizey}, minmax(0, 1fr)); grid-template-columns: repeat({engine.sizex})"
 	>
 		{#each { length: engine.sizex * engine.sizey } as _}
-			<div class="min-h-[110px] min-w-[110px] bg-black/20 rounded" />
+			<div class="gamebgtile bg-black/20 rounded" />
 		{/each}
 	</div>
 </div>
+
+<style>
+	.gamegrid {
+		gap: 7px;
+		padding: 7px;
+	}
+	@media (min-width: 640px) {
+		.gamegrid {
+			gap: 15px;
+			padding: 15px;
+		}
+	}
+	.gridparent {
+		height: calc(55px * 4 + 7px * 5) px;
+		width: calc(55px * 4 + 7px * 5) px;
+	}
+	@media (min-width: 640px) {
+		.gridparent {
+			height: calc(110px * 4 + 15px * 5);
+			width: calc(110px * 4 + 15px * 5);
+		}
+	}
+	.gamebgtile {
+		height: 55px;
+		width: 55px;
+	}
+	@media (min-width: 640px) {
+		.gamebgtile {
+			height: 110px;
+			width: 110px;
+		}
+	}
+</style>

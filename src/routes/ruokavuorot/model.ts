@@ -1,4 +1,4 @@
-import { dayToSlotToCourses, slotToBreakTime, slotToLessonTime, slotToLunchTime } from './data';
+import { dayToSlotToCourses, slotToBreakTime, slotToLessonTime, slotToLunchTime } from "./data";
 
 export function getSlot(day: number, course: string) {
 	const slotToCourses = dayToSlotToCourses[day];

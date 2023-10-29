@@ -59,7 +59,7 @@
 				autocomplete="current-password"
 			/>
 		</div>
-		<input class="bg cursor-pointer" type="submit" value="Kirjaudu" />
+		<input class="btnfull" type="submit" value="Kirjaudu" />
 	</form>
 </div>
 

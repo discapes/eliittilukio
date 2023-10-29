@@ -2,6 +2,7 @@
 	import { page } from "$app/stores";
 	import { API_URL } from "@/lib/def";
 	import { invalidateAll } from "$app/navigation";
+	import hamIcon from "@fortawesome/fontawesome-free/svgs/solid/list-ul.svg";
 
 	async function logout() {
 		await fetch(API_URL + "/logout", {
@@ -26,13 +27,70 @@
 		{
 			name: "Palauteboksi",
 			path: "/palauteboksi"
+		},
+		{
+			name: "Ilmoitukset",
+			path: "/ilmoitukset"
 		}
 	];
+
+	let hamOpen = false;
 </script>
 
-<header>
+<header class="bg">
+	<div class="hidden sm:flex justify-between">
+		<div class="flex">
+			{#each navItems as navItem}
+				{#if $page.url.pathname === navItem.path}
+					<button class="text-gray-500 p-2" disabled>{navItem.name}</button>
+				{:else}
+					<a class="btn p-2" href={navItem.path}>{navItem.name}</a>{/if}
+			{/each}
+		</div>
+		<div class="flex">
+			{#if $page.data.me}
+				<div class="center p-2 bg">Logged in as {$page.data.me.username}</div>
+				<button on:click={logout}> Log out </button>
+			{:else}
+				<a class="btn px-5" href="/login">Kirjaudu</a>
+				<a class="btn px-5" href="/register">Luo tili</a>
+			{/if}
+		</div>
+	</div>
+
+	<div class="flex-col flex sm:hidden">
+		<div class="flex">
+			{#if $page.data.me}
+				<div class="grow center p-2 bg">Logged in as {$page.data.me.username}</div>
+				<button class="bg grow" on:click={logout}> Log out </button>
+			{:else}
+				<a class="btn grow px-5" href="/login">Kirjaudu</a>
+				<a class="btn grow px-5" href="/register">Luo tili</a>
+				<div class="grow-[4]" />
+			{/if}
+			<button on:click={() => (hamOpen = !hamOpen)}>
+				<img src={hamIcon} class="h-7 m-1 invert" alt="hamburger" />
+			</button>
+		</div>
+
+		{#if hamOpen}
+			<nav class="flex flex-col">
+				{#each navItems as navItem}
+					{#if $page.url.pathname === navItem.path}
+						<button class="text-gray-500 p-2" disabled>{navItem.name}</button>
+					{:else}
+						<a class="btn p-2" href={navItem.path}>{navItem.name}</a>{/if}
+				{/each}
+			</nav>
+		{/if}
+	</div>
+</header>
+
+<!--
+<header class="bg flex justify-between">
 	<div class="w-full" />
 	<nav class="w-full">
+
 		<ul>
 			{#each navItems as navItem}
 				<li aria-current={$page.url.pathname === navItem.path ? "page" : undefined}>
@@ -51,14 +109,10 @@
 		{/if}
 	</div>
 </header>
+-->
 
 <style>
-	header {
-		display: flex;
-		justify-content: space-between;
-		background-color: var(--bg-color);
-	}
-
+	/*
 	ul {
 		position: relative;
 		padding: 0;
@@ -75,19 +129,11 @@
 		position: relative;
 		height: 100%;
 	}
-
-	li[aria-current="page"]::before {
-		--size: 6px;
-		content: "";
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--color-theme-1);
+*/
+	a[aria-current="page"] {
+		color: gray;
 	}
-
+	/*
 	nav a {
 		display: flex;
 		height: 100%;
@@ -104,5 +150,5 @@
 
 	a:hover {
 		text-shadow: #fff 1px 0 10px;
-	}
+	}*/
 </style>

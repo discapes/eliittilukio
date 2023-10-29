@@ -73,7 +73,7 @@
 				autocomplete="current-password"
 			/>
 		</div>
-		<input class="bg cursor-pointer" type="submit" value="Luo tili" />
+		<input class="btnfull" type="submit" value="Luo tili" />
 	</form>
 </div>
 

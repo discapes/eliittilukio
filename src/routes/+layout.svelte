@@ -11,7 +11,7 @@
 
 <div class="min-h-screen flex-col flex">
 	<Header />
-	<main class="grow m-10">
+	<main class="grow m-5 sm:m-10 sm:mb-5">
 		<slot />
 	</main>
 	<footer class="text-center">© {new Date().getFullYear()} MT & OPKH</footer>
