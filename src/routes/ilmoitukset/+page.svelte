@@ -30,8 +30,9 @@
 	<div class="p-3 bg max-w-md">
 		<h4>terkut kerlun ICT linjalle</h4>
 		<p>
-			hei miks flexaatte feikkiscoreilla, kaikki kuiteski tietää et niiden lisäämiseen menee 30
-			sekkaa ja sen voi tehdä jokanen skidi jolla on selain. cmon, noloa
+			hei miks flexaatte tekemällä feikkiscoreja, kaikki tietää et niiden lisäämiseen menee 30
+			sekuntia ja sen voi tehdä jokanen skidi jolla on selain. cmon, noloa et teil meni siihen 48
+			(laskin) yritystä
 		</p>
 		<span class="text-stone-400">29.10.</span>
 	</div>
