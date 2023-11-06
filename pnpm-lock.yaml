@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+dependencies:
+  mcping-js:
+    specifier: ^1.5.0
+    version: 1.5.0
+
 devDependencies:
   '@fortawesome/fontawesome-free':
     specifier: ^6.4.2
@@ -20,6 +25,9 @@ devDependencies:
   '@types/cookie':
     specifier: ^0.5.3
     version: 0.5.3
+  '@types/mcping-js':
+    specifier: ^1.5.3
+    version: 1.5.3
   autoprefixer:
     specifier: ^10.4.16
     version: 10.4.16(postcss@8.4.31)
@@ -483,6 +491,10 @@ packages:
 
   /@types/estree@1.0.3:
     resolution: {integrity: sha512-CS2rOaoQ/eAgAfcTfq6amKG7bsN+EMcgGY4FAFQdvSj2y1ixvOZTUA9mOtCai7E1SYu283XNw7urKK30nP3wkQ==}
+    dev: true
+
+  /@types/mcping-js@1.5.3:
+    resolution: {integrity: sha512-syqHuUCTitsxpJ7s5rPiOzDLXqKQFnBvbBe0rvValnl7bxC2MfPEtfCPjLGjyCsc1aUNApGEnoGZoy12/DVWiw==}
     dev: true
 
   /@types/pug@2.0.8:
@@ -1056,6 +1068,10 @@ packages:
       semver: 5.7.2
     dev: true
     optional: true
+
+  /mcping-js@1.5.0:
+    resolution: {integrity: sha512-CoXbpbSqE4OtJupU2lvzoKFrGerH0AoyY9YoQ98EKUOhtxfLQa+f+DFqWYUaZ451Scru1gJm/+w6d3IKJhMGvQ==}
+    dev: false
 
   /mdn-data@2.0.30:
     resolution: {integrity: sha512-GaqWWShW4kv/G9IEucWScBx9G1/vsFZZJUO+tD26M8J8z3Kw5RDQjaoZe03YAClgeS/SWPOcb4nkFBTEi5DUEA==}

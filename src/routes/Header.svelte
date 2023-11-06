@@ -6,7 +6,7 @@
 
 	async function logout() {
 		await fetch(API_URL + "/logout", {
-			method: "POST"
+			method: "POST",
 		});
 		invalidateAll();
 	}
@@ -14,24 +14,28 @@
 	const navItems = [
 		{
 			name: "Home",
-			path: "/"
+			path: "/",
+		},
+		{
+			name: "Minecraft",
+			path: "/minecraft",
 		},
 		{
 			name: "Oispa Eliitti",
-			path: "/oispaeliitti"
+			path: "/oispaeliitti",
 		},
 		{
 			name: "Ruokavuorot",
-			path: "/ruokavuorot"
+			path: "/ruokavuorot",
 		},
 		{
 			name: "Palauteboksi",
-			path: "/palauteboksi"
+			path: "/palauteboksi",
 		},
 		{
 			name: "Ilmoitukset",
-			path: "/ilmoitukset"
-		}
+			path: "/ilmoitukset",
+		},
 	];
 
 	let hamOpen = false;
