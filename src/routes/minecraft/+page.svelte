@@ -13,6 +13,7 @@
 			{:else}
 				<div class="flex flex-col">
 					<span>Server is online!</span>
+					<a class="text-blue-300" href="mcmap/">Live map</a>
 					<span>Version: {data.version}</span>
 					<span>Players: {data.players.online} / {data.players.max}</span>
 				</div>
@@ -31,13 +32,15 @@
 			<i>minecraft@eliittilukio.fi</i> omasta @edu.turku.fi-osoitteesta. Pyynnöt pyritään prosessoimaan
 			päivän sisällä.
 		</p>
+		<div>Säännöt: Älä griiffaa, pölli arkuista, cheattaa tai häiritse muita.</div>
 		<div>
 			Info:
 			<ul class="list-disc ml-5">
-				<li>Positiivisen Z-koordinaatin alueella PVP on pois päältä</li>
-				<li>Lähteminen kesken taistelun johtaa kuolemaan</li>
-				<li>Maailma on 5000x5000 palikkaa, sitä lisätään kun pelaajia tulee lisää</li>
 				<li>Käytettävät komennot löytyy /help-komennolla</li>
+				<li>Vain yksi henkilö riittää nukkumaan</li>
+				<li>Pvp:n voi laittaa päälle /togglepvp-komennolla</li>
+				<li>Ääri on toistaiseksi pois</li>
+				<li>Maailma on toistaiseksi 5000x5000</li>
 				<li>
 					<a
 						class="text-blue-300"
@@ -51,17 +54,5 @@
 				</li>
 			</ul>
 		</div>
-		<div>
-			Säännöt:
-			<ul class="list-disc ml-5">
-				<li>Keskustele asiallisesti, ellei jokainen osapuoli toisin sovi</li>
-				<li>Älä griiffaa ilman lupaa.</li>
-				<li>Cheatit on kiellettyjä.</li>
-			</ul>
-		</div>
-		<p>
-			Pluginit (jos jotain kiinnostaa): WorldGuard, CoreProtect, CombatLogX, EssentialsX,
-			SimpleVoiceChat, LuckPerms ja ViaVersion.
-		</p>
 	</div>
 </div>
