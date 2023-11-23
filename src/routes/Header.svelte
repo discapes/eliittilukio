@@ -33,7 +33,7 @@
 			path: "/palauteboksi",
 		},
 		{
-			name: "Ilmoitukset",
+			name: "Ilmoitukset p. 23.11.",
 			path: "/ilmoitukset",
 		},
 	];

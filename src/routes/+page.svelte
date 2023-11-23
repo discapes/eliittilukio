@@ -67,7 +67,7 @@
 	</div>
 	<div class="flex flex-wrap gap-5">
 		{#each links as link}
-			<a class="bg-white text-black flex flex-col items-center p-3" target="_blank" href={link.url}>
+			<a class="bg-white text-black h-32 w-32 flex flex-col items-center p-3" target="_blank" href={link.url}>
 				{link.name}
 				<div class="linkimage m-2" style="background-image: url('/logos/{link.logo}');" /></a
 			>
