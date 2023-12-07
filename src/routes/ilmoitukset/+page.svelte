@@ -44,14 +44,20 @@
 		["Rakastan sua", "thx"],
 		["moi", "moi"],
 		["mur", "mur"],
-		["DROP TABLE tuokset;", "hehheh hauska, onneks oli kirjoitusvirhe tai ois kanta kadonnu"]
+		["DROP TABLE tuokset;", "hehheh hauska, onneks oli kirjoitusvirhe tai ois kanta kadonnu"],
 	];
 </script>
 
 <div class="bg p-3 flex flex-col gap-5">
 	<h3>Ilmoitukset</h3>
+	<div class="p-3 bg max-w-md">
+		<h4>ilmoitus</h4>
+		<p class="text-stone-400">7.12.</p>
+		<p>Ruokavuorot päivitetty 3. jaksolle, ja etusivulla näkyy mitä syödään</p>
+	</div>
 	<div class="p-3 bg max-w-3xl">
 		<h4>vastauksia palautteisiin</h4>
+		<p class="text-stone-400">23.11.</p>
 		<p class="text-rose-200">
 			&gt; Eliittilukio.fi:n tietoturvallisuutta on haukuttu jo muiden koulujen jäsenten toimesta.
 			En usko, että tilien salasanoja scryptataan. Miten kommentoitte tietoturvallisuuttanne?
@@ -62,12 +68,12 @@
 			sähköpostia. Palvelimen puolella salasanat suojataan Argon2-algoritmillä, joka on yksi
 			maailman vahvimmista. Käytännössä tämä tarkoittaa sitä, että jos muuttuisin ilkeäksi ja
 			haluisin katsoa jonkun henkilön salasanan, en sitä pysty itsekään tekemään. Salasanoja ei
-			myöskään säilytetä clientillä (selaimessa), vaan kirjautumistunnukset vaihdetaan
-			JWT-tokeniin, jolla tunnistaudutaan palveluun ensimmäisen kirjautumisen jälkeen.
-			JWT:t taas on allekirjoitettu HS256:lla, johon sisältyvä SHA-256-hajautusfunktio on käytössä
-			esimerkiksi pankeissa. Jos tämän onnistuu rikkomaan, pystyy vaikka siirtämään
-			itselleen kaikki olemassaolevat Bitcoinit eli satoja miljardeja euroja. Palvelimessa on Debian
-			12 -käyttöjärjestelmä turvapäivityksillä, ja sinne ei voi kirjautua salasanalla (pelkästään
+			myöskään säilytetä clientillä (selaimessa), vaan kirjautumistunnukset vaihdetaan JWT-tokeniin,
+			jolla tunnistaudutaan palveluun ensimmäisen kirjautumisen jälkeen. JWT:t taas on
+			allekirjoitettu HS256:lla, johon sisältyvä SHA-256-hajautusfunktio on käytössä esimerkiksi
+			pankeissa. Jos tämän onnistuu rikkomaan, pystyy vaikka siirtämään itselleen kaikki
+			olemassaolevat Bitcoinit eli satoja miljardeja euroja. Palvelimessa on Debian 12
+			-käyttöjärjestelmä turvapäivityksillä, ja sinne ei voi kirjautua salasanalla (pelkästään
 			avaimella). Jos keneltäkään löytyy tähän parannettavaa, otan ideoita ilomielin ja kiitollisena
 			vastaan. Myös kehittämiseen pääsee mukaan, kunhan osaa Rustia tai TypeScriptia.
 		</p>
@@ -93,16 +99,15 @@
 				<span class="text-lime-200">{a}</span>
 			</p>
 		{/each}
-		<span class="text-stone-400">23.11.</span>
 	</div>
 	<div class="p-3 bg max-w-md">
 		<h4>vastauksia palautteisiin</h4>
+		<p class="text-stone-400">29.10.</p>
 		{#each qna as [q, a]}
 			<p>
 				<span class="text-rose-200">&gt; {q}</span><br />
 				<span class="text-lime-200">{a}</span>
 			</p>
 		{/each}
-		<span class="text-stone-400">29.10.</span>
 	</div>
 </div>

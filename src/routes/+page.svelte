@@ -8,48 +8,48 @@
 		{
 			name: "Wilma",
 			logo: "wilma.png",
-			url: "https://turku.inschool.fi/"
+			url: "https://turku.inschool.fi/",
 		},
 		{
 			name: "TSYKin blogi",
 			logo: "wordpress.png",
-			url: "https://blog.edu.turku.fi/tsyk/"
+			url: "https://blog.edu.turku.fi/tsyk/",
 		},
 		{
 			name: "Office 365",
 			logo: "office.png",
-			url: "https://login.microsoftonline.com/?whr=edu.turku.fi"
+			url: "https://login.microsoftonline.com/?whr=edu.turku.fi",
 		},
 		{
 			name: "Moodle",
 			logo: "moodle.png",
-			url: "https://lukio.edu.turku.fi/"
+			url: "https://lukio.edu.turku.fi/",
 		},
 		{
 			name: "Viikon ruuat",
 			logo: "kaarea.png",
-			url: "https://menu.kaarea.fi/KaareaAromieMenus/FI/Default/Kaarea/TSYKLU/Restaurant.aspx"
+			url: "https://menu.kaarea.fi/KaareaAromieMenus/FI/Default/Kaarea/TSYKLU/Restaurant.aspx",
 		},
 		{
 			name: "Otava",
 			logo: "otava.svg",
-			url: "https://opiskelija.otava.fi/materiaalit/omat"
+			url: "https://opiskelija.otava.fi/materiaalit/omat",
 		},
 		{
 			name: "Studeo",
 			logo: "studeo.svg",
-			url: "https://app.studeo.fi/app/home"
+			url: "https://app.studeo.fi/app/home",
 		},
 		{
 			name: "Sanomapro",
 			logo: "sanomapro.png",
-			url: "https://kampus.sanomapro.fi/"
+			url: "https://kampus.sanomapro.fi/",
 		},
 		{
 			name: "Edita",
 			logo: "edita.png",
-			url: "https://shop.edita.fi/digiedita/omat-tuotteet"
-		}
+			url: "https://shop.edita.fi/digiedita/omat-tuotteet",
+		},
 	];
 </script>
 
@@ -64,10 +64,18 @@
 				Tällä hetkellä täältä löytyy linkkejä, oispaeliitti, ruokavuorolaskuri ja palauteboksi.
 			</h4>
 		</div>
+		<div class="bg-stone-100 p-5 text-stone-900 flex flex-col gap-3">
+			<span class="text-lg font-bold">Lounas: {data.lounas}</span>
+			<span class="text-lg font-bold">Kasvislounas: {data.kasvisLounas}</span>
+		</div>
 	</div>
 	<div class="flex flex-wrap gap-5">
 		{#each links as link}
-			<a class="bg-white text-black h-32 w-32 flex flex-col items-center p-3" target="_blank" href={link.url}>
+			<a
+				class="bg-white text-black h-32 w-32 flex flex-col items-center p-3"
+				target="_blank"
+				href={link.url}
+			>
 				{link.name}
 				<div class="linkimage m-2" style="background-image: url('/logos/{link.logo}');" /></a
 			>
