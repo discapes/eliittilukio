@@ -58,11 +58,20 @@
 		<img class="inline-block h-[100px]" alt="tsyk logo" src="/favicon.png" />
 		<!-- so flex doesn't wrap too early -->
 		<div class="basis-[230px] grow">
-			<h2>Eliittilukio.fi</h2>
-			<h3>eli siis TSYK</h3>
-			<h4 class="mb-0">
-				Tällä hetkellä täältä löytyy linkkejä, oispaeliitti, ruokavuorolaskuri ja palauteboksi.
+			<h2>TSYKin opiskelijakunnan sivusto</h2>
+			<h4 class="mb-0 text-xl">
+				Linkkejä, lounasta ja <i>Oispa Eliitti</i>.
 			</h4>
+			<p class="mt-5 text-lg">
+				Ruokavuorolaskuria ei ole päivitetty koska sen tekijä valmistui, mutta jos joku nykyinen
+				opiskelija osaa ohjelmoida edes hieman ja haluu saavuttaa mainetta ja kunniaa, tehkää Issue
+				tai PR
+				<a
+					href="https://github.com/discapes/eliittilukio-frontend"
+					class="underline"
+					target="_blank">tänne</a
+				>
+			</p>
 		</div>
 		<div class="bg-stone-100 p-5 text-stone-900 flex flex-col gap-3">
 			<span class="text-lg font-bold">Lounas: {data.lounas}</span>

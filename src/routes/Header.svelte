@@ -17,25 +17,21 @@
 			path: "/",
 		},
 		{
-			name: "Minecraft",
-			path: "/minecraft",
-		},
-		{
 			name: "Oispa Eliitti",
 			path: "/oispaeliitti",
 		},
-		{
-			name: "Ruokavuorot",
-			path: "/ruokavuorot",
-		},
-		{
-			name: "Palauteboksi",
-			path: "/palauteboksi",
-		},
-		{
-			name: "Ilmoitukset p. 7.12.",
-			path: "/ilmoitukset",
-		},
+		// {
+		// 	name: "Ruokavuorot",
+		// 	path: "/ruokavuorot",
+		// },
+		// {
+		// 	name: "Palauteboksi",
+		// 	path: "/palauteboksi",
+		// },
+		// {
+		// 	name: "Ilmoitukset p. 7.12.",
+		// 	path: "/ilmoitukset",
+		// },
 	];
 
 	let hamOpen = false;
